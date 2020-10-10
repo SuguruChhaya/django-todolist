@@ -1,0 +1,61 @@
+{% extends "main/base.html" %}
+{% block title %} View List {% endblock %}
+
+{% block content %}
+
+<!--Passed variables-->
+<h1>
+    {{ls.name}}
+</h1>
+
+<!--loop-->
+<!--!ul tag shows the list-->
+
+<!--!Need form to show information and modify information-->
+<form method="post" action="#">
+    {% csrf_token %}
+
+{% for item in ls.item_set.all %}
+    <!--Show only is item not completed-->
+    <!--!Wanna add checkboxes to show whether they are completed. Default checked when completed-->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+            {% if item.complete == True %}
+                <input type="checkbox", value="clicked", name="c{{item.id}}" checked>
+
+
+            {% else %}
+
+                <input type="checkbox", value="clicked", name="c{{item.id}}">
+            {% endif %}
+            </div>
+        </div>
+        <input type="text" value="{{item.text}}" class="form-control">
+    </div>
+
+
+    
+
+{% endfor %}
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <button type="submit", name="newItem", value="newItem", class="btn btn-success">Add Item</button>
+    </div>
+    <input type="text", name="new">
+</div>
+
+<!--!Need save and add buttons-->
+<!--Submit just updates the checkbutton values-->
+<!--Add adds the item name and completed or not-->
+<!--There is always a dictionary passed. Could look like {"save: ["save"], "c1": ["clicked"]}-->
+<!--!When I click the submit or save button, the 'value' gets added for the name key. Not clicked when value is empty.-->
+
+<!--Need some input field to add items-->
+
+
+<button type="submit", name="save", value="save">Save</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+View
+{% endblock title %}
+
+{% block content %}
+    <!--!Basically we are trying to display all the todolists for that user. I am adding links to that.-->
+    {% for td in user.todolist.all %}
+        <p><a href="/{{td.id}}">{{td.name}}</a></p>
+    {% endfor %}
+{% endblock content %}

@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@l(^ujhb48kb8j6-tenm-hw-vd-5_166f=muov)z5m3r&a)ff*'
+SECRET_KEY = 'c85hc=^024x3sszeuk=dzaqxj2a9b9bcf131#9$2end2x44u=r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #!Crispy forms is a popular bootstrap used for creating forms
+    'crispy_forms',
+    'main.apps.MainConfig',
+    "register.apps.RegisterConfig"
 ]
 
 MIDDLEWARE = [
@@ -118,3 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPlATE_PACK = "bootstrap4"
+
+LOGIN_REDIRECT_URL = "/"
+
+LOGOUT_REDIRECT_URL = "/"

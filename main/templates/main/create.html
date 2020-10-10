@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Create New List
+{% endblock %}
+
+{% block content %}
+<h3>Create Page</h3>
+<!--!To create a form in django, I just need to pass in form objects-->
+<form method="post" action="/create/", class="form-group">
+    <!--!Need to add a csrf_token to not run into issues-->
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit", name="save" class="btn btn-success">Create New</button>
+        
+        </div>
+        {{form.name}}
+    </div>
+    
+    
+    <!--Create new python form called forms.py-->
+</form>
+{% endblock %}
